@@ -96,6 +96,50 @@ The Apache HttpClient 5 based transport has dependences on Apache HttpClient 5 a
     implementation("org.apache.httpcomponents.core5", "httpcore5", "5.2.2")
 ```
 
+```java
+final OpenSearchTransport transport = ApacheHttpClient5TransportBuilder
+    .builder(httpHost)
+    .setMapper(new JacksonJsonpMapper())
+    .setHttpClientConfigCallback(new ApacheHttpClient5TransportBuilder.HttpClientConfigCallback() {
+        @Override
+        public HttpAsyncClientBuilder customizeHttpClient(HttpAsyncClientBuilder httpClientBuilder) {
+            return httpClientBuilder.setVersionPolicy(HttpVersionPolicy.FORCE_HTTP_2);
+        }
+    })
+    .build();
+OpenSearchClient client = new OpenSearchClient(transport);
+```
+
+See [SampleClient.java](./samples/src/main/java/org/opensearch/client/samples/SampleClient.java) for a working sample.
+
+#### Using `RestClientTransport` (deprecated)
+
+```java
+import org.apache.hc.core5.http.HttpHost;
+
+final HttpHost[] hosts = new HttpHost[] {
+    new HttpHost("http", "localhost", 9200)
+  };
+
+// Initialize the client with SSL and TLS enabled
+final RestClient restClient = RestClient
+  .builder(hosts)
+  .build();
+
+OpenSearchTransport transport = new RestClientTransport(restClient, new JacksonJsonpMapper()); 
+OpenSearchClient client = new OpenSearchClient(transport);
+```
+
+The `JacksonJsonpMapper` class (2.x versions) only supports Java 7 objects by default. [Java 8 modules](https://github.com/FasterXML/jackson-modules-java8) to support JDK8 classes such as the Date and Time API (JSR-310), `Optional`, and more can be used by including [the additional datatype dependency](https://github.com/FasterXML/jackson-modules-java8#usage) and adding the module. Auto-detection for these modules is enabled, adding them to the classpath is enough.
+You can also provide your own `ObjectMapper` instance if you need to pre-configure it differently, for example:
+
+```java
+OpenSearchTransport transport = new RestClientTransport(restClient,
+    new JacksonJsonpMapper(new ObjectMapper().findAndRegisterModules().configure(SerializationFeature.INDENT_OUTPUT, true))); 
+OpenSearchClient client = new OpenSearchClient(transport);
+>>>>>>> c1ae51280 (jackson `ObjectMapper`: auto-detect modules (#1643))
+```
+
 Upcoming OpenSearch `3.0.0` release brings HTTP/2 support and as such, the `RestClientTransport` would switch to HTTP/2 if available (for both HTTPS and/or HTTP protocols). The desired protocol could be forced using `RestClientBuilder.HttpClientConfigCallback`.
 
 See [SampleClient.java](./samples/src/main/java/org/opensearch/client/samples/SampleClient.java) for a working sample.
