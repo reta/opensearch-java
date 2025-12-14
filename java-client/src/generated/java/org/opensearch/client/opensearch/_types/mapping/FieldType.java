@@ -30,94 +30,114 @@
  * GitHub history for details.
  */
 
+//----------------------------------------------------
+// THIS CODE IS GENERATED. MANUAL EDITS WILL BE LOST.
+//----------------------------------------------------
+
 package org.opensearch.client.opensearch._types.mapping;
 
+import javax.annotation.Generated;
 import org.opensearch.client.json.JsonEnum;
 import org.opensearch.client.json.JsonpDeserializable;
 
+// typedef: _types.mapping.FieldType
+
 @JsonpDeserializable
+@Generated("org.opensearch.client.codegen.CodeGenerator")
 public enum FieldType implements JsonEnum {
-    None("none"),
+    AggregateMetricDouble("aggregate_metric_double"),
 
-    GeoPoint("geo_point"),
-
-    GeoShape("geo_shape"),
-
-    Ip("ip"),
+    Alias("alias"),
 
     Binary("binary"),
 
-    Keyword("keyword"),
+    Boolean("boolean"),
 
-    Text("text"),
+    Byte("byte"),
 
-    SearchAsYouType("search_as_you_type"),
+    Completion("completion"),
+
+    ConstantKeyword("constant_keyword"),
 
     Date("date"),
 
     DateNanos("date_nanos"),
 
-    Boolean("boolean"),
+    DateRange("date_range"),
 
-    Completion("completion"),
+    Double("double"),
+
+    DoubleRange("double_range"),
+
+    FlatObject("flat_object"),
+
+    Float("float"),
+
+    FloatRange("float_range"),
+
+    GeoPoint("geo_point"),
+
+    GeoShape("geo_shape"),
+
+    HalfFloat("half_float"),
+
+    Histogram("histogram"),
+
+    IcuCollationKeyword("icu_collation_keyword"),
+
+    Integer("integer"),
+
+    IntegerRange("integer_range"),
+
+    Ip("ip"),
+
+    IpRange("ip_range"),
+
+    Join("join"),
+
+    Keyword("keyword"),
+
+    KnnVector("knn_vector"),
+
+    Long("long"),
+
+    LongRange("long_range"),
+
+    MatchOnlyText("match_only_text"),
+
+    Murmur3("murmur3"),
 
     Nested("nested"),
 
     Object("object"),
 
-    Murmur3("murmur3"),
-
-    TokenCount("token_count"),
-
     Percolator("percolator"),
-
-    Integer("integer"),
-
-    Long("long"),
-
-    Short("short"),
-
-    Byte("byte"),
-
-    Float("float"),
-
-    HalfFloat("half_float"),
-
-    ScaledFloat("scaled_float"),
-
-    Double("double"),
-
-    IntegerRange("integer_range"),
-
-    FloatRange("float_range"),
-
-    LongRange("long_range"),
-
-    DoubleRange("double_range"),
-
-    DateRange("date_range"),
-
-    IpRange("ip_range"),
-
-    Alias("alias"),
-
-    Join("join"),
 
     RankFeature("rank_feature"),
 
     RankFeatures("rank_features"),
 
-    FlatObject("flat_object"),
+    ScaledFloat("scaled_float"),
 
-    XyShape("xy_shape"),
+    SearchAsYouType("search_as_you_type"),
 
-    Histogram("histogram"),
+    Semantic("semantic"),
 
-    ConstantKeyword("constant_keyword"),
+    Short("short"),
 
-    AggregateMetricDouble("aggregate_metric_double"),
+    Text("text"),
 
-    KnnVector("knn_vector"),;
+    TokenCount("token_count"),
+
+    UnsignedLong("unsigned_long"),
+
+    Version("version"),
+
+    Wildcard("wildcard"),
+
+    XyPoint("xy_point"),
+
+    XyShape("xy_shape");
 
     private final String jsonValue;
 

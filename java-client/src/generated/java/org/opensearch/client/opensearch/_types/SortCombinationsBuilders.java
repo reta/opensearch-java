@@ -30,34 +30,31 @@
  * GitHub history for details.
  */
 
+//----------------------------------------------------
+// THIS CODE IS GENERATED. MANUAL EDITS WILL BE LOST.
+//----------------------------------------------------
+
 package org.opensearch.client.opensearch._types;
 
-import org.opensearch.client.json.JsonEnum;
-import org.opensearch.client.json.JsonpDeserializable;
+import javax.annotation.Generated;
 
-@JsonpDeserializable
-public enum FieldSortNumericType implements JsonEnum {
-    Long("long"),
+/**
+ * <p>
+ * Builders for {@link SortCombinations} variants.
+ * </p>
+ * <p>
+ * Variants <code>field</code>, <code>field_with_direction</code>, <code>field_with_order</code> are not available here as they don't have a
+ * dedicated class. Use {@link SortCombinations}'s builder for these.
+ * </p>
+ */
+@Generated("org.opensearch.client.codegen.CodeGenerator")
+public class SortCombinationsBuilders {
+    private SortCombinationsBuilders() {}
 
-    Double("double"),
-
-    Date("date"),
-
-    DateNanos("date_nanos"),
-
-    ;
-
-    private final String jsonValue;
-
-    FieldSortNumericType(String jsonValue) {
-        this.jsonValue = jsonValue;
+    /**
+     * Creates a builder for the {@link SortOptions options} {@code SortCombinations} variant.
+     */
+    public static SortOptions.Builder options() {
+        return new SortOptions.Builder();
     }
-
-    public String jsonValue() {
-        return this.jsonValue;
-    }
-
-    public static final JsonEnum.Deserializer<FieldSortNumericType> _DESERIALIZER = new JsonEnum.Deserializer<>(
-        FieldSortNumericType.values()
-    );
 }

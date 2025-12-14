@@ -93,7 +93,12 @@ public class Overrides {
                     schema("_common", "SortOptions"),
                     so -> so.withMappedType(t -> t.withPackage(Types.Client.OpenSearch._Types.PACKAGE).withName("SortOptions"))
                 )
-
+                .with(
+                    schema("_common", "FieldSort").append("allOf", "1"),
+                    so -> so.withProperties(
+                        p -> p.with("field", po -> po.withMappedType(Types.Java.Lang.String))
+                    )
+                )
                 .with(
                     schema("_common", "GetStats"),
                     so -> so.withProperties(
