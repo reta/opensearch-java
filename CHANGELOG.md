@@ -5,6 +5,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 ### Dependencies
+- Bump `org.owasp.dependencycheck` from 12.1.3 to 12.2.2 ([#1972](https://github.com/opensearch-project/opensearch-java/pull/1972))
 
 ### Changed
 

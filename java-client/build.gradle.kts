@@ -51,8 +51,8 @@ plugins {
     java
     `java-library`
     `maven-publish`
-    id("com.github.jk1.dependency-license-report") version "3.1.1"
-    id("org.owasp.dependencycheck") version "12.1.3"
+    id("com.github.jk1.dependency-license-report") version "3.1.2"
+    id("org.owasp.dependencycheck") version "12.2.2"
 
     id("opensearch-java.spotless-conventions")
 }
